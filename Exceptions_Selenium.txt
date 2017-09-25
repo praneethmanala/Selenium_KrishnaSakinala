@@ -1,0 +1,32 @@
+1.NoSuchElementException:
+*****************************
+The reason for this exception is, the element you are trying to find does not exist.
+
+2.NoSuchFrameException:
+*************************
+ This is also most and frequent facing exception. In modern applications people are using iFrames very frequently. When you try to find an iFrame on application and it is not exist in the application then code will throw NoSuchFrameException.
+
+3.NoSuchWindowException:
+*************************
+A window is a browser which is opened by the WebDriver or child window(i.e another brodwser opened from the parent browser). When you try to find a Window and that is not available at present,then the code will throw NoSuchWindowException.
+
+4.ElementNotVisibleException:
+********************************
+This is also most and very frequent facing exception. This WlementNoVisibleException tells you that the WebElement that you are trying to interact with is not visible to the user.
+
+5.StaleElementReferenceException:
+**********************************
+This is an exception that you will quite often see when you work with AJAX or heavy JavaScript websites, Where the DOM is continuasly being changed.When the element is not longer attached to the DOM then you will face this exception.
+
+6.InvalidElementStateException:
+*********************************
+This exception you can not find very frequently. When you try to interact with any element then an unexpected popup will come but we ate not sure why and what it is. An InvalidElementStateException is thrown when the WebElement that you are trying to interact with is not in a state that would allow you to perform the action that you would like to perform.
+
+7.UnreachableBrowserException:
+********************************
+Sometimes you will face this type of Exception.As we know that selenium sends commands to the browser to execute and get tha response back.Sometimes we will not get the response from the browser then we will get UnreachableBrowserException.
+
+8.SessionNotFoundException:
+****************************
+You will not get this king of exceprion frequnetly. But while you executing your tests and something will go wrong and will lose connection with browser instance that you are driving.Then you will get SessionNotFoundException.
+ 

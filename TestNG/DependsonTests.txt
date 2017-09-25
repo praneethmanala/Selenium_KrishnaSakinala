@@ -1,0 +1,52 @@
+1.Depends on Methods:
+*************************
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class DependancyTest {
+
+	
+	@Test
+	public void method1(){
+		
+		System.out.println("This is independent method");
+	}
+	@Test(dependsOnMethods="method3")
+	public void method2(){
+		
+		System.out.println("This is independent method");
+	}
+	@Test
+	public void method3(){
+		
+		System.out.println("This is depends on Method2 method");
+	}
+}
+**********************************************************************************
+2.Depends on Group
+******************
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class DependancyTest {
+
+	
+	@Test(groups={"single-group"})
+	public void method1(){
+		
+		System.out.println("This is independent method-1");
+	}
+	@Test(dependsOnGroups="single-group")
+	public void method2(){
+		
+		System.out.println("This is independent method-2");
+	}
+	@Test
+	public void method3(){
+		
+		System.out.println("This is depends on Method2 method-3");
+	}
+}
+*****************************************************************************

@@ -1,0 +1,94 @@
+1.Suite Level
+**************
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class TimeOut {
+
+	@Test
+	public void FirstTest() throws InterruptedException{
+		Thread.sleep(2000);
+		System.out.println("Execute in 2 sec");
+	}
+	@Test
+	public void SecondTest() throws InterruptedException{
+		Thread.sleep(4000);
+		System.out.println("Execute in 4 sec");
+	}
+}
+TestNG XML:
+***********
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" time-out ="3000">
+  <test name="Test">
+    <classes>
+      <class name="com.java.testNG.TimeOut"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+**********************************************************************************************************
+2.Method Level
+**************
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class TimeOut {
+
+	@Test(timeOut=3000)
+	public void FirstTest() throws InterruptedException{
+		Thread.sleep(2000);
+		System.out.println("Execute in 2 sec");
+	}
+	@Test(timeOut=3000)
+	public void SecondTest() throws InterruptedException{
+		Thread.sleep(4000);
+		System.out.println("Execute in 4 sec");
+	}
+}
+TestNG XML:
+***********
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="com.java.testNG.TimeOut"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+*********************************************************************************************************
+3.Method OVerride Suite Level
+*****************************
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class TimeOut {
+
+	@Test
+	public void FirstTest() throws InterruptedException{
+		Thread.sleep(2000);
+		System.out.println("Execute in 2 sec");
+	}
+	@Test(timeOut=2500)
+	public void SecondTest() throws InterruptedException{
+		Thread.sleep(2800);
+		System.out.println("Execute in 4 sec");
+	}
+}
+
+TestNG XML :
+***********
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" time-out ="3000">
+  <test name="Test">
+    <classes>
+      <class name="com.java.testNG.TimeOut"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+

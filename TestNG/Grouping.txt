@@ -1,0 +1,54 @@
+.Java
+********
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class GroupingTest {
+	
+	@Test(groups={"sanity-group"})
+	public void method1(){
+		
+		System.out.println("This is sanity group method");
+	}
+	@Test(groups={"regression-group","sanity-group"})
+	public void method2(){
+		
+		System.out.println("This is regression and sanity group method");
+	}
+	@Test(groups={"regression-group"})
+	public void method3(){
+		
+		System.out.println("This is regression group method");
+	}
+
+}
+**************************************************************
+testNG.xml
+**********
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test1">
+  <groups>
+  <run>
+  <include name="sanity-group"></include>
+  </run>
+  </groups>
+    <classes>
+      <class name="com.java.testNG.GroupingTest"/>
+  
+    </classes>
+  </test> <!-- Test -->
+   <test name="Test2">
+  <groups>
+  <run>
+  <include name="regression-group"></include>
+  </run>
+  </groups>
+    <classes>
+      <class name="com.java.testNG.GroupingTest"/>
+     </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+*****************************************************************************

@@ -1,0 +1,138 @@
+Main Class:
+***********
+package com.java.Screenshot;
+
+import static org.testng.Assert.assertTrue;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class MainClass {
+
+    public static WebDriver driver;
+    
+    @Test
+    public void login(){
+    	
+    	String path = System.getProperty("user.dir") +"\\drivers\\geckodriver.exe";
+    	System.setProperty("webdriver.gecko.driver",path);
+    	driver = new FirefoxDriver();
+    	driver.get("http://youtube.com/");
+    	Assert.assertTrue(false);
+    	
+    }
+}
+************************************************************************
+2.ScreenshotUtility
+****************
+package com.java.Screenshot;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import org.apache.commons.io.FileUtils;
+
+
+
+public class ScreenshotUtility  extends MainClass{
+
+
+	public static String screenShot(String Screenshotname) throws IOException{
+		
+		   TakesScreenshot  ts= (TakesScreenshot)driver;
+		   File source =ts.getScreenshotAs(OutputType.FILE);
+		   String dest=System.getProperty("user.dir")+ "/screenshots/" + Screenshotname + ".png";
+		   File destination =new File(dest);
+		   FileUtils.copyFile(source,destination);
+		   return dest;
+		   
+	}
+}
+**********************************************************************
+3.ITestlistener:
+****************
+package com.java.Screenshot;
+
+import java.io.IOException;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class CustomeListner implements ITestListener {
+
+	@Override
+	public void onTestStart(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailure(ITestResult result) {
+		
+		// TODO Auto-generated method stub
+		
+		try {
+			ScreenshotUtility.screenShot(result.getName());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	@Override
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStart(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}
+***********************************************************************
+4.TestNG.xml
+*************
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+<listener class-name="com.java.Screenshot.CustomeListner"></listener>
+</listeners>
+  <test name="Test">
+    <classes>
+      <class name="com.java.Screenshot.MainClass"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+*********************************************************************
+

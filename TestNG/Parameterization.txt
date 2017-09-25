@@ -1,0 +1,53 @@
+package com.java.testNG;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class Parameterization {
+ 
+	@Parameters("Suite-level-parameter")
+	@Test
+	public void firstMethod(String parameter){
+		
+		System.out.println(parameter);
+	}
+	@Parameters("Test-level-parameter")
+	@Test
+	public void secongMethod(String parameter){
+		
+		System.out.println(parameter);
+	}
+	
+}
+**************************************************************
+testNG.xml
+***********
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<parameter name="Suite-level-parameter" value="This is suite level parameter"></parameter>
+  <test name="Test1">
+  <classes>
+  <class name="com.java.testNG.Parameterization">
+  <methods>
+  <include name="firstMethod"></include>
+  </methods>
+  </class>
+  </classes>
+  </test> <!-- Test -->
+  
+   <test name="Test2">
+  <parameter name="Test-level-parameter" value="This is Test level parameter"></parameter> 
+  <classes>
+  <class name="com.java.testNG.Parameterization">
+  <methods>
+  <include name="secondMethod"></include>
+  </methods>
+  </class>
+  </classes>
+  </test> <!-- Test -->
+  
+  
+  
+</suite> <!-- Suite -->
+************************************************************

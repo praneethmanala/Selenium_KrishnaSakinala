@@ -1,0 +1,31 @@
+Adding Methods to the TestNG.xml
+*********************************
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="com.java.FirstTestCase.FirstTestCase">
+      <methods>
+      <include name="Method1"></include>
+      <exclude name="Method2"></exclude>
+      <include name="Method3"></include>
+      </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+*********************************************************************************************
+Adding Packages to the TestNG.xml
+**********************************
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+     <packages>
+    <package name="com.java.testNG"></package>
+    </packages>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+**********************************************************************************************
+

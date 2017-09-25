@@ -1,0 +1,54 @@
+package com.java.programatically;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.testng.ITestNGListener;
+import org.testng.TestNG;
+import org.testng.xml.XmlClass;
+import org.testng.xml.XmlSuite;
+import org.testng.xml.XmlTest;
+
+public class ExecuteinProgramatically {
+	
+	  public static void main(String[] args) {
+			
+			ExecuteinProgramatically obj = new ExecuteinProgramatically();
+			obj.executeProgramatically();
+		}
+
+	
+	public void executeProgramatically(){  
+		
+	  List<XmlSuite> suites = new ArrayList<XmlSuite>();
+	  List<XmlClass>   classes = new ArrayList<XmlClass>();
+	 // List<Class> listenerclasses = new ArrayList<Class>();
+	  
+	  XmlSuite suite = new XmlSuite();
+	  suite.setName("sanitySuite");
+	  
+	  XmlTest test = new XmlTest();
+	  test.setName("sanityTest");
+	 
+	  XmlClass class1 = new XmlClass("com.java.programatically.SampleProgramme1");
+	  classes.add(class1);
+	  
+	  XmlClass class2 = new XmlClass("com.java.programatically.SamplePrograme2");
+	  classes.add(class2);
+	  
+	//  listenerclasses.add(Listenerclass.class);
+	  
+	  test.setXmlClasses(classes);
+	  suites.add(suite);
+	  
+	  TestNG tng = new TestNG();
+	  tng.setXmlSuites(suites);
+	  //tng.setListenerClasses(listenerclasses);
+	  tng.run();
+	  
+	  
+	}
+        
+}
+
+**************************************************************************

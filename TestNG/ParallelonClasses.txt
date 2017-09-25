@@ -1,0 +1,58 @@
+Class1
+******
+package com.java.testNG;
+
+
+import org.testng.annotations.Test;
+
+public class ParallelClass1 {
+	
+	@Test
+	public void Method1() throws InterruptedException{
+			Thread.sleep(3000);
+			System.out.println("This is method 1 of class1");
+		}
+	@Test
+	public void Method2() throws InterruptedException{
+		Thread.sleep(3000);
+			System.out.println("This is method 2 of class1");
+		}
+
+}
+******************************************************
+Class2
+*******
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class ParallelClass2 {
+
+	
+	@Test
+	public void Method3() throws InterruptedException{
+		    Thread.sleep(3000);
+		  	System.out.println("This is method 3 of class2");
+		}
+	@Test
+	public void Method4() throws InterruptedException{
+		    Thread.sleep(3000);
+		 	System.out.println("This is method 4 of class2");
+		}
+
+}
+************************************************
+testNG.xml
+**********
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes" thread-count="2">
+  <test name="Test">
+    <classes>
+      <class name="com.java.testNG.ParallelClass1"/>
+       <class name="com.java.testNG.ParallelClass2"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+***********************************************************************

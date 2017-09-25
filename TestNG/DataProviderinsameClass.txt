@@ -1,0 +1,101 @@
+ package com.java.testNG;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class DataProviderClass {
+	
+	
+	@Test(dataProvider="data-provider")
+	public void testMethod(String param){
+		
+		System.out.println(param);
+		
+	}
+	
+	@DataProvider(name="data-provider")
+	public Object[][] dataProviderMethod(){
+		
+		return new Object[][]{
+			{"provider1"},
+			{"provider2"}
+			
+		};
+		
+		}
+
+}
+
+Ex..2
+ package com.java.testNG;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class DataProviderClass {
+	
+	
+	@Test(dataProvider="data-provider")
+	public void testMethod(String userName,String Password){
+		
+		System.out.println(userName);
+		System.out.println(Password);
+		
+	}
+	
+	@DataProvider(name="data-provider")
+	public Object[][] dataProviderMethod(){
+		
+		Object[][] data=new Object[2][2];
+		
+		data[0][0]="Praneeth";
+		data[0][1]="Praneeth@";
+		
+		data[1][0]="Praneeth1";
+		data[1][1]="Praneeth@1";
+		return data;
+		
+		
+		
+		
+		
+		}
+
+}
+
+***********************************************************************
+DataProvider in Other Class
+***************************
+1
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class DataProviderinOtherClass1 {
+
+	@Test(dataProvider="data-provider" , dataProviderClass=DataProviderinOtherClass2.class)
+	public void testMethod(String param){
+		
+		System.out.println(param);
+		
+	}
+	
+}
+*****************************
+2.
+package com.java.testNG;
+
+import org.testng.annotations.DataProvider;
+
+public class DataProviderinOtherClass2 {
+
+	@DataProvider(name="data-provider")
+	public Object[][] dataProviderMethod(){
+		
+		return new Object[][]{
+			{"provider3"},
+			{"provider4"}
+			
+		};
+}
+}

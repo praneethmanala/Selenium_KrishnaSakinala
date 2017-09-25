@@ -1,0 +1,74 @@
+X-path:
+-------
+1.Absolute Xpath        2.Relative Xpath
+
+1.Relative Xpath:
+-----------------
+1.Single Attribute:
+**************************************
+
+//*[@attribute='attibute value']
+//tagname[@attribute='attibute value']
+
+2.Multiple Attribute:
+**************************************
+
+//*[@attribute1='attibute value'and @attribute2='attibute value']
+//*[@attribute1='attibute value'][@attribute2='attibute value']
+
+3.Contatains
+**************************************
+
+//tagname[contains(@attribute,'attibute value')]
+
+4.Starts-With
+**************************************
+
+//tagname[starts-with(@attribute,'attibute value')]
+
+5.Text
+**************************************
+
+//tagname[text()='Full text value']
+
+6.Ancestor(parent ,grandparent , ect...)
+**************************************
+
+//label[text()='Full Name* ']//ancestor::tagname
+
+7.Preceding
+**************************************
+
+//label[text()='Full Name* ']//preceding::tagname
+
+8.Desendant(Children , grand childrem)
+**************************************
+
+//label[@attribute='attribute value']//descendant::tagname 
+
+9.Following
+************
+
+//label[@attribute='attribute value']//following::tagname 
+
+Few More Points
+***************
+1.Direct Child -------> //div[contains(@id,'-grid-container')]/div
+                                                          ********single slash will show direct childs
+
+2.Sub Child----------->//div[contains(@id,'-grid-container')]/div
+                                                           ********double slash will show all direct childs and  sub childs
+
+3.Parent Element------>//div[contains(@id,'-grid-container')]/..
+                                                           ******One slash and 2 dots shows the immediat parent 
+and //div[contains(@id,'-grid-container')]/../..
+                                        ***********
+
+4.Next Sibling---------->//div[contains(@id,'-grid-container')]/../div
+
+5.Finding more than one Element------>//div[contains(@id,'-grid-container')]/div
+ 
+                                       
+
+
+

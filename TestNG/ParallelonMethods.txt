@@ -1,0 +1,53 @@
+.JavaClass
+***********
+package com.java.testNG;
+
+import org.testng.annotations.Test;
+
+public class ParallelonMethods {
+	
+	@Test
+	public void method1() throws InterruptedException{
+		
+		for(int i=0;i<=10;i++){
+			Thread.sleep(3000);
+			System.out.println("The value of i is "+i);
+		}
+		
+	}
+	@Test
+	public void method2() throws InterruptedException{
+		
+		
+		
+		for(int j=100;j>=90;j--){
+			Thread.sleep(3000);
+			System.out.println("The value of j is "+j);
+		}
+
+	}
+	@Test
+	public void method3() throws InterruptedException{
+		
+		for(int x=10;x<=20;x++){
+			Thread.sleep(3000);
+			System.out.println("The value of x is "+x);
+		}
+		
+	}
+
+}
+***************************************************************************
+testNG.xml
+*************
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite"  parallel="methods" thread-count="3" >
+  <test name="Test">
+    <classes>
+      <class name="com.java.testNG.ParallelonMethods"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+******************************************************************
+		

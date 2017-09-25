@@ -1,0 +1,23 @@
+Command
+********
+Procedure 1.
+************
+1. cmd>cd C:\Users\admin\workspace\testNG
+2. cmd>set classpath=C:\Users\admin\workspace\testNG\bin;C:\Users\admin\workspace\testNG\libs\*
+3. cmd>java org.testng.TestNG testng.xml
+
+Procedure2.
+************
+1. cmd>cd C:\Users\admin\workspace\testNG
+2.cmd>java -cp ".\bin;.\libs\*" org.testng.TestNG testng.xml
+
+if 2 testng.mxl files
+cmd>java -cp ".\bin;.\libs\*" org.testng.TestNG testng.xml testng2.xml
+
+Execute particular Test using Testng.xml
+*******************************************
+
+cmd>java -cp "\bin;\libs\*" org.testng.TestNG -testnames "Test2" testng.xml
+
+
+
